@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 openrouter_data = {
     "provider": "openrouter",
-    "apiKey": "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"
+    "apiKey": ""
 }
 
 @app.route('/')
@@ -63,8 +63,8 @@ def make_call():
         "phoneNumberId": "3a2b425c-7f89-4b5b-b8f7-f4c30144f06e",
         "phoneNumber": {
             "twilioPhoneNumber": "+14242567980",
-            "twilioAccountSid": "ACafceec25279d3460ecf9efa13d3dbbcf",
-            "twilioAuthToken": "634a5b74d42d26795d700ab965051133"
+            "twilioAccountSid": "",
+            "twilioAuthToken": ""
         }
     }
 
