@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Call</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           background-image: url("https://media.giphy.com/media/RgzryV9nRCMHPVVXPV/giphy.gif?cid=790b761130cwyrt7v6bur658oekmy3ma3xn4271eejbbjyi1&ep=v1_gifs_search&rid=giphy.gif&ct=g");
+            background-size: cover;
+
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: black;
+            border-radius: 8px;
+ margin: 0;
+            padding: 0;
+
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            height:600px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: white;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+        input[type="text"] {
+            width: calc(100% - 10px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Make a Call</h1>
+        <form id="callForm">
+            <label for="customer_number">Customer Number:</label>
+            <input type="text" id="customer_number" name="customer_number" placeholder="Enter customer number" required><br><br>
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" placeholder="Enter customer name" required><br><br>
+            <button type="submit">Make Call</button>
+        </form>
+
+        <div id="response"></div>
+    </div>
+
+    <script>
+        document.getElementById('callForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const customer_number = document.getElementById('customer_number').value;
+            const customer_name = document.getElementById('customer_name').value;
+            const response = await fetch('/make_call', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    customer: {
+                        number: customer_number,
+                        name: customer_name
+                    }
+                })
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+        });
+
+    </script>
+<script>!function(window){const host="https://app.heygen.com",url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJBbm5hX3B1YmxpY18zXzIwMjQwMTA4Iiwi%0D%0Adm9pY2UiOnsidm9pY2VfaWQiOiJhYTgxNWI5YTgwNTM0ZDkyODYzNGNiN2RmNGY5OTc1NCJ9LCJw%0D%0AcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlcy5oZXlnZW4uYWkvYXZhdGFyL3YzLzNjNDI3ZDhjODE0%0D%0AMTQzNTViMDRjMmIyNWExZTc4NzNhXzEzMjE2L3ByZXZpZXdfdGFsa18zLndlYnAiLCJuZWVkUmVt%0D%0Ab3ZlQmFja2dyb3VuZCI6dHJ1ZSwidXNlcm5hbWUiOiJhYmM4NmE0YWMzNGY0OGMwODBmN2FhMDM5%0D%0AZjliN2RmOCJ9&inIFrame=1",clientWidth=document.body.clientWidth,wrapDiv=document.createElement("div");wrapDiv.id="heygen-streaming-embed";const container=document.createElement("div");container.id="heygen-streaming-container";const stylesheet=document.createElement("style");stylesheet.innerHTML=`\n  #heygen-streaming-embed {\n    z-index: 9999;\n    position: fixed;\n    left: 40px;\n    bottom: 40px;\n    width: 200px;\n    height: 200px;\n    border-radius: 50%;\n    border: 2px solid #fff;\n    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);\n    transition: all linear 0.1s;\n    overflow: hidden;\n\n    opacity: 0;\n    visibility: hidden;\n  }\n  #heygen-streaming-embed.show {\n    opacity: 1;\n    visibility: visible;\n  }\n  #heygen-streaming-embed.expand {\n    ${clientWidth<540?"height: 266px; width: 96%; left: 50%; transform: translateX(-50%);":"height: 366px; width: calc(366px * 16 / 9);"}\n    border: 0;\n    border-radius: 8px;\n  }\n  #heygen-streaming-container {\n    width: 100%;\n    height: 100%;\n  }\n  #heygen-streaming-container iframe {\n    width: 100%;\n    height: 100%;\n    border: 0;\n  }\n  `;const iframe=document.createElement("iframe");iframe.allowFullscreen=!1,iframe.title="Streaming Embed",iframe.role="dialog",iframe.src=url;let visible=!1,initial=!1;window.addEventListener("message",(e=>{e.origin===host&&e.data&&e.data.type&&"streaming-embed"===e.data.type&&("init"===e.data.action?(initial=!0,wrapDiv.classList.toggle("show",initial)):"show"===e.data.action?(visible=!0,wrapDiv.classList.toggle("expand",visible)):"hide"===e.data.action&&(visible=!1,wrapDiv.classList.toggle("expand",visible)))})),container.appendChild(iframe),wrapDiv.appendChild(stylesheet),wrapDiv.appendChild(container),document.body.appendChild(wrapDiv)}(globalThis);</script>
+</body>
+</html>
