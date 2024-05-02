@@ -62,7 +62,7 @@ def make_call():
         },
         "phoneNumberId": "3a2b425c-7f89-4b5b-b8f7-f4c30144f06e",
         "phoneNumber": {
-            "twilioPhoneNumber": "+14242567980",
+            "twilioPhoneNumber": "",
             "twilioAccountSid": "",
             "twilioAuthToken": ""
         }
