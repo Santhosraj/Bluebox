@@ -69,7 +69,7 @@ def make_call():
     }
 
     headers = {
-        "Authorization": "Bearer 52a64d78-8435-49cc-8c41-f9cc94dd219b",
+        "Authorization": "Bearer <>",
         "Content-Type": "application/json"
     }
 
