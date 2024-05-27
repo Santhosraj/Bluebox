@@ -3,10 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-openrouter_data = {
-    "provider": "openrouter",
-    "apiKey": ""
-}
 
 @app.route('/')
 def main():
@@ -22,7 +18,6 @@ def make_call():
 
     payload = {
         "maxDurationSeconds": 500,
-        "assistantId": "cd2420bd-8449-4fc4-be70-ffc6e3e6bd8b",
         "assistant": {
             "transcriber": {
                 "provider": "deepgram",
@@ -30,8 +25,8 @@ def make_call():
                 "language": "en-US"
             },
             "model": {
-                "provider": "openrouter",
-                "model": "gemini-pro",
+                "provider": "groq",
+                "model": "mistral8x-7B",
                 "messages": [
                     {
                         "content": "You are a world class customer service agent. You are a conversational assistant named Alice. Use short, conversational responses as if you're having a live conversation. Your response should be under 50 words. Do not respond with any code, only conversation. Do not say that you are an ai chatbot",
@@ -60,7 +55,7 @@ def make_call():
             "number": request.json['customer']['number'],
             "name": request.json['customer']['name']
         },
-        "phoneNumberId": "3a2b425c-7f89-4b5b-b8f7-f4c30144f06e",
+        "phoneNumberId": "",
         "phoneNumber": {
             "twilioPhoneNumber": "",
             "twilioAccountSid": "",
