@@ -14,7 +14,6 @@ def index():
 
 @app.route('/make_call', methods=['POST'])
 def make_call():
-    url = "https://api.vapi.ai/call/phone"
 
     payload = {
         "maxDurationSeconds": 500,
