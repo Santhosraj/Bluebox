@@ -42,17 +42,29 @@ BlueBox is an AI-powered virtual assistant designed to handle customer interacti
 
    ```bash
    git clone https://github.com/yourusername/BlueBox.git
-
+```
 2.Navigate to the project directory:
+ ```bash
 cd BlueBox
+```
+
 
 3.Install the dependencies:
+ ```bash
 pip install -r requirements.txt
+```
+
 
 4.Set up your environment variables for Twilio and Deepgram:
+ ```bash
 export TWILIO_ACCOUNT_SID=your_twilio_sid
 export TWILIO_AUTH_TOKEN=your_twilio_auth_token
 export DEEPGRAM_API_KEY=your_deepgram_api_key
+```
+
 
 5.Run the flask application:
+ ```bash
 flask run
+```
+
