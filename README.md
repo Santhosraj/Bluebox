@@ -54,5 +54,5 @@ export TWILIO_ACCOUNT_SID=your_twilio_sid
 export TWILIO_AUTH_TOKEN=your_twilio_auth_token
 export DEEPGRAM_API_KEY=your_deepgram_api_key
 
-5.Run the flask application
+5.Run the flask application:
 flask run
