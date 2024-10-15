@@ -54,16 +54,16 @@ def make_call():
             "number": request.json['customer']['number'],
             "name": request.json['customer']['name']
         },
-        "phoneNumberId": "2d39a6a8-db97-4bd0-baf5-3155b7514524",
+        "phoneNumberId": "<PHONE NUMBER ID>",
         "phoneNumber": {
-            "twilioPhoneNumber": "+19403267588",
-            "twilioAccountSid": "ACb78d3c15a7f3057fd9561cd79c7667c1",
-            "twilioAuthToken": "f28c3872e5e6858609456719096ea971",
+            "twilioPhoneNumber": "<YOUR TWILIO PHONE NUMBER>",
+            "twilioAccountSid": "<TWILIO SID>",
+            "twilioAuthToken": "<TWILIO AUTHTOKEN>",
         }
     }
 
     headers = {
-        "Authorization": "Bearer 52a64d78-8435-49cc-8c41-f9cc94dd219b",
+        "Authorization": "Bearer <Deepgram auth token>",
         "Content-Type": "application/json"
     }
 
